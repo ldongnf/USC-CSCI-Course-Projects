@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Super HTML!</title>
+
+    <style type="text/css">
+        /* bg image*/
+        body{
+            background-image:url(Image/bg.png);
+            font-family: "Trebuchet MS";
+            margin: 0;
+        }
+        
+        /* container */
+        #container{
+            margin-left: auto; 
+            margin-right: auto;
+            margin-top: 3em;
+            width: 50em;
+        }
+        
+        /*header*/
+        header{
+            border: solid;
+            border-style: none;
+            margin-bottom: 2em;
+            padding-left: 0.7em;
+            font-size: 1.1em;
+        }
+        #website_name{font-size: 2.8em;font-weight: 600;}
+        #year{text-decoration: underline;}
+        /*navgator*/
+        nav{
+            background-color: black;
+            height: 2.4em; 
+            margin-bottom: 2em;
+            border-radius: 5px;
+            padding-left: 1em;
+        }
+        
+        nav li{list-style-type: none;display:inline-block;font-size: 1em;line-height:1em;align-items: center;padding: 0.7em;padding-left: 1.5em;padding-right: 1.5em;}
+        nav li a{color:white;text-decoration: none;}
+        li:hover{background: #CD5C5C;}
+        li.home{margin-left: 1.5em;background:#CD5C5C;border-bottom-left-radius: 5px;border-top-left-radius: 5px;}
+
+        /*maginzine info*/
+        #magzineInfo{
+            height:10em;
+            border-style: solid;
+            border-color: white;
+            background-color: white;
+            margin-bottom: 1.7em;
+            border-radius: 10px;
+            padding-left: 1.1em;
+            padding-top: 1em;
+            padding-right: 1.9em;
+            padding-bottom: 1em;
+        }
+        
+        #magzine_intro{
+            float:left;
+            width: 50%;
+            margin-top: 0.6em;
+        }
+        #maginze_image{
+            float:right;
+            margin-top: 1em;
+        } 
+        
+        #ftrartcl{color: #CD5C5C; line-height: 2em;font-size: 1.5em;}
+        #artclttl{line-height: 2.25em;font-size: 1.25em;margin-left: 0.05em;}
+        #magizinecontent{font-size: .875em;line-height: 1.5em;}
+        #sm-logo{
+            height: 6.4em; 
+            margin:1em;
+            margin-left: 0em;
+            border-color:rgb(240,240,240);
+            border-style: solid;
+            border-width: 2px;
+        }
+        
+        /* passage area*/
+        #passage_wrapper{
+            height:19.5em;
+            border: solid;
+            border-color: white;
+            background-color: white;
+            border-radius: 10px;
+            padding:1em;
+            padding-left: 3em;
+            padding-right: 0em;
+            margin-bottom: 2em;
+        }
+        #passage_wrapper hr{
+            margin: 0;
+            padding: 0;
+            margin-left: 0.5em;
+            height:1px;
+            background-color:rgb(237,237,237);
+            border:0;
+            width:97%;
+        }
+        div.passage:hover{
+            background:#CD5C5C;
+            color:white;
+        }
+        
+        div.passage:hover .clr_undlne{
+            color: rgb(240,206,137);
+            
+        }
+        
+        div.passage:hover h1{
+            color: rgb(240,206,137);
+        }
+        div.passage{
+            height: 50%;
+            margin: 0;
+            padding-left: 1.2em;
+            box-sizing:border-box;
+            border: solid;
+            border-color: black;
+            border-width: 0;
+            margin-right: 0.7em;
+        }
+        
+        div.writer{
+            float:left;
+            width:20%;
+            height: inherit; 
+            margin-top: 1.45em;
+            font-size: 0.88em;
+            line-height: 1.5em;
+            box-sizing: border-box;
+        }
+        .trick{
+            letter-spacing: 0.008em;
+        }
+        div.passagecontent{
+            float:right;
+            width:80%;
+            margin-top: 2em;
+            font-size: 0.87em;
+            line-height: 1.4em;
+            box-sizing: border-box;
+            padding-left: 3.5em;
+        }
+        .clr_undlne{
+            text-decoration: underline;
+            color: #CD5C5C;
+        }
+        
+        .passagecontent h1{
+            color: #CD5C5C;
+            font-size: 1.38em;
+            font-weight: 400;
+        }
+        
+        
+        /* other info*/
+        #relatedinfo{
+            height: 6em;
+            margin-bottom: 1.9em;
+        }
+        #blogroll{float:left;width:75%;margin-top: .75em;}
+        #social{float:right;width:25%;margin-top:.75em;box-sizing: border-box;padding-left:0.5em;}
+        #social hr{
+            width: 76.6%;
+            margin-right: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            border-top: 1px solid rgb(239,226,226);
+            border-bottom: 1px solid rgb(255,255,255);
+            border-left-style: none;
+        }
+        
+        a.blogroll_item{
+            display: inline-block;
+            font-size: 0.7em;
+            height:1.2em;
+            line-height:1em;
+            margin-left: 2.6em;
+            padding-left: 0.3em;
+            width:13.5em;
+            margin-top: 0.5em;
+            padding-top: 0.3em;
+            color:darkslategray;
+            text-decoration: none;
+        }
+        a.blogroll_item:hover{
+            background:#CD5C5C;
+            color:white;
+        }
+        
+       
+        #Spec{
+            margin-left: .4em;
+        }
+        
+        #blogroll ul{
+            margin: 0; padding-left: 0.19em;;line-height: 1.2em;font-size: 1.25em;color: #CD5C5C;
+        }
+        #social ul{
+            margin: 0; padding-left: 1.05em;line-height: 1.2em;font-size: 1.25em;color: #CD5C5C;
+        }
+        a.social_item{
+            display: inline-block;
+            font-size: 0.7em;
+            margin-left: 2.7em;
+            color:darkslategray;
+            width: 9.22em;
+            padding-left: 0.3em;
+            padding-top: 0.1em;
+            text-decoration:none;
+        }
+        #fb{
+            margin-top: 0.3em;
+            padding-bottom:0.2em;
+        }
+        
+        a.social_item:hover{
+            background: #CD5C5C;
+            color:white;
+        }
+        #facebook{
+            margin-top: 0.3em;
+            margin-right: 0.4em;
+            float: left;
+        }
+        #twitter{
+            margin-top: 0.3em;
+            margin-right: 0.4em;
+            float: left;
+        }
+        
+        /*footer info*/
+        footer{
+            height:10em;
+            margin-top: 2.8em;
+        }
+        #footercontent{
+            height:6.1em;
+            background-color: white;
+            border-radius: 10px;
+        }      
+        #avatar{
+            display: inline;
+            float:left;
+            margin-left: 0.3em;
+            margin-right: 1.9em;
+            margin-top:0.3em;
+        }
+        #footername{
+            float:left;
+            width:25%;
+            height: 100%;
+            font-size: 1.1em;
+            margin:0;
+            padding: 1.15em;
+            box-sizing: border-box;
+            padding-bottom: 0;text-indent: 0.1em;color: #CD5C5C;
+            font-weight: 600;
+        }
+        #comment{font-size:0.8em;color: black;
+        font-weight: 400;}
+        #footermessage{
+            float:right;
+            width:75%;
+            font-size: 0.877em;
+            line-height: 1.5em;
+            margin: 0;
+            background-color: transparent;
+            height:inherit;
+            padding: 1em;
+            padding-top: 1.3em;
+            padding-left: 0em;
+            padding-bottom: 0;
+            box-sizing: border-box;
+        }
+        
+        #copyright{
+            text-align: right;
+            height:1em;
+            background-color: transparent;
+            margin: 0;
+            padding:0;
+            margin-top: 2.1em;
+        font-size: 0.89em;
+        }
+        #copyright #name{
+            color: #CD5C5C;
+            text-decoration: underline;
+        }
+    </style>
+    
+</head>
+
+
+<body>
+    <div id="container">
+    
+        <header>
+            <span id="website_name">Super HTML! </span> 
+            HTML in the<br>year&nbsp;<span id="year">2016</span>
+        </header>
+    
+        <nav>
+            <li class="home"><a href="X.html#home" target="_blank">home</a></li
+            ><li><a href="X.html#portfolio" target="_blank">portfolio</a></li
+            ><li><a href="X.html#blog" target="_blank">blog</a></li
+            ><li><a href="X.html#contact" target="_blank">contact</a></li>
+        </nav>
+
+        <div id="magzineInfo">
+            <div id="magzine_intro">        
+                <span id="ftrartcl">Featured Article</span>
+                <br>
+                <span id="artclttl">
+                    HTML in Super Magazine!
+                </span><br>
+                <span id="magizinecontent">
+                    Discover how to use graceful degradation and progressive enhancement techniques to achieve an outstanding, cross-browser website today!
+                </span>
+            </div>
+            <div id="maginze_image">
+                <img id="sm-logo" src="Image/sm-logo.gif">
+            </div>
+        </div>
+        
+        <div id="passage_wrapper">
+            <div class="passage">
+                <div class="writer">
+                    10th July 2016<br>
+                    By <span class="clr_undlne">Enrique Ramírez</span>
+                </div>
+                <div class="passagecontent">
+                    <h1>CSS3 is the ticket</h1>
+                    Lorem ipsum dolor sit amet, consectetur adipidcing elit. Quisque venvenatis nunc <span class="trick">vitae libero iaculis elementum. Nullam et justo <span class="clr_undlne">non sapien</span> dapibus blandit nec et </span>leo. Ut ut malesuada tellus.
+                </div>
+
+            </div>
+            <hr>
+            <div class="passage">
+                <div class="writer">
+                    9th April 2016<br>
+                    By <span class="clr_undlne">Enrique Ramírez</span>
+                </div>
+                <div class="passagecontent">
+                    <h1>HTML5 is the language</h1>
+                    Lorem ipsum dolor sit amet, consectetur adipidcing elit. Quisque venvenatis nunc <span class="trick">vitae libero iaculis elementum. Nullam et justo <span class="clr_undlne">non sapien</span> dapibus blandit nec et </span>leo. Ut ut malesuada tellus.
+                </div>
+            </div>   
+        </div>   
+        
+        <div id="relatedinfo">
+            <div id="blogroll">
+                <ul>blogroll<br> 
+                    <a class="blogroll_item" target ="_blank" href="X.html#doctor">HTML5 Doctor</a>
+                    <a class="blogroll_item" id="Spec" target ="_blank" href="X.html#spec">HTML5 Spec (working draft)</a>
+                    <a class="blogroll_item" target ="_blank" href="X.html#magazine">Super Magazine
+                        </a>               
+                </ul>
+            </div>
+            <div id="social">
+                <ul>social<br>
+                    <a target ="_blank" href="X.html#facebook" class="social_item" id="fb">
+                        <img id="facebook" src="Image/facebook.png">
+                        facebook</a>
+                <hr>
+                <a target ="_blank" href="X.html#twitter" class="social_item"><img id="twitter" src="Image/twitter.png">
+                    twitter</a>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <div id="footercontent">
+                <div id="footername">
+                    Super Magazine<br>
+                    <span id="comment">Amazing Magazine</span>
+                </div>
+                <div id="footermessage">
+                    <img src="Image/avatar.gif" id="avatar">
+                    Super Magazine is a website and bolg that offers resources and advice to web developers and web designers. It was founded by Jimmy Jantz.
+                </div>
+            </div>
+            
+            <div id="copyright">
+                2005-2016 <span id="name">Super Magazine</span>.
+            </div>   
+        </footer>
+    </div>
+    
+    
+    <noscript>
+</body>
+    
+    
+    
+</html>

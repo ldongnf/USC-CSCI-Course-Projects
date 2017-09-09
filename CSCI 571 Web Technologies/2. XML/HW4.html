@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            #container{
+                margin-left: auto; 
+                margin-right: auto;
+                width: 50em;
+                text-align: center
+            }   
+            #xml_sumbit{
+                font-size: 0.8em;
+            }
+        </style>       
+        
+        <script type ="text/javascript">
+        var ERROR_MEESAGE_NOENTRY = -1;
+        var ERROR_MESSAGE_INVALID = -2;
+        var ERROR_MESSAGE_NOTEXIST = -3;
+        var ERROR_MESSAGE_EMPTYURL = -4;
+
+        function portal(){
+            xmlUrl = xml_input.value;
+            
+            //here is a function test
+            xmlDoc =loadXML(xmlUrl);
+            if(xmlDoc == ERROR_MESSAGE_EMPTYURL){
+                alert("Empty Url");
+            }
+            if(xmlDoc == ERROR_MEESAGE_NOENTRY){
+                alert("This XML file contains NO radio stations");
+            }
+            if(xmlDoc == ERROR_MESSAGE_INVALID){
+                alert("Error in XML File");
+            }
+            if(xmlDoc == ERROR_MESSAGE_NOTEXIST){
+                alert("XML file does not exist");
+            }
+            var htmlTxt = generateHTML(xmlDoc);
+       
+            resPage = window.open("", "Assignment4", "height=600,width=810,scrollbars=yes");
+            resPage.document.write(htmlTxt);   
+        }
+          
+           
+        function loadXML(url){            
+            if(!url){
+                return ERROR_MESSAGE_EMPTYURL;
+            }
+
+            if(window.XMLHttpRequest){
+                //code for IE7+, FireFox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else{
+                //code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //open, send, responseXML are
+            xmlhttp.open("GET", url, false);
+            try{
+                xmlhttp.send();
+            }
+            catch(e){
+                return ERROR_MESSAGE_NOTEXIST;
+            }
+            if(xmlhttp.readyState == 1 || xmlhttp.readyState==404){
+                return ERROR_MESSAGE_NOTEXIST;
+            }
+            
+            //properties of XMLHTTPRequest
+            xmlDoc = xmlhttp.responseXML;
+            if(!xmlDoc){
+                return ERROR_MESSAGE_NOTEXIST;
+            }
+            
+            var rows = xmlDoc.getElementsByTagName("Row");
+            
+            if(xmlDoc.documentElement.nodeName=="parsererror"){
+                return ERROR_MESSAGE_INVALID;
+            }
+            if(rows.length<=0){
+                return ERROR_MEESAGE_NOENTRY;
+            }
+            
+            return xmlDoc;
+        }
+
+        function generateHTML(xmlDoc){
+            var htmlTxt = "<!DOCTYPE html><html><head><title>The Result Table</title><style type='text/css'>#location{padding-left:1.5em;}tr{height:1em;}</style></head><body>";
+            
+            htmlTxt += "<table id='result' border = '1' width = '780'><tr>"
+            var header = xmlDoc.getElementsByTagName("Data");
+            for(i=0; i<header.length; i++){
+                htmlTxt += "<th>"+header[i].firstChild.data+"</th>";
+            }
+            htmlTxt +="</tr>";
+            
+            var rows = xmlDoc.getElementsByTagName("Row");
+            for(i=0; i<rows.length; i++){
+                
+                currRow = rows[i];
+                if(currRow.hasChildNodes){
+                    htmlTxt += "<tr>";  
+                    
+                    htmlTxt += "<td>"
+                    var slot = currRow.getElementsByTagName("Slot");
+                    if(slot.length>0 && slot[0].firstChild){
+                        if(slot[0].firstChild.data.trim()){
+                            htmlTxt += slot[0].firstChild.data; 
+                        }     
+                    }
+                    htmlTxt += "</td>"
+                    
+                    htmlTxt += "<td>"
+                    var newspaper = currRow.getElementsByTagName("Newspaper");
+                    if(newspaper.length>0 && newspaper[0].firstChild){
+                        if(newspaper[0].firstChild.data.trim()){
+                            htmlTxt += newspaper[0].firstChild.data;
+                        }       
+                    }
+                    htmlTxt += "</td>"               
+                    
+                    htmlTxt+="<td id ='location'>";
+                    var location = currRow.getElementsByTagName("Location");   
+                    if(location.length>0){
+                        var city = location[0].getElementsByTagName("City")
+                        if(city.length>0 && city[0].firstChild){
+                            if(city[0].firstChild.data.trim()){
+                                htmlTxt += "<li>"+city[0].firstChild.data+"</li>";
+                            }    
+                        }
+
+                        var state = location[0].getElementsByTagName("State")
+                        if(state.length>0 && state[0].firstChild){
+                            if(state[0].firstChild.data.trim()){
+                                htmlTxt += "<li>"+state[0].firstChild.data+"</li>";
+                            }
+                        }
+                    }
+                    htmlTxt+="</td>";
+                    
+                    htmlTxt += "<td>";
+                    var homePage = currRow.getElementsByTagName("HomePage");
+                    if(homePage.length>0 && homePage[0].firstChild){
+                        if(homePage[0].firstChild.data.trim()){
+                            htmlTxt += "<a href='"+homePage[0].firstChild.data+"'>"+homePage[0].firstChild.data+"</a>";
+                        }
+                    }
+                    htmlTxt += "</td>";
+                    
+                    htmlTxt += "<td>";
+                    var logo = currRow.getElementsByTagName("Logo");
+                    if(logo.length>0&&logo[0].firstChild){
+                        if(logo[0].firstChild.data.trim()){
+                             htmlTxt += "<img src=\'"+logo[0].firstChild.data+"' width=200em height=100em></img>";   
+                        }  
+                    }
+                    htmlTxt += "</td>";
+                    
+                    htmlTxt += "</tr>";
+                }                
+            }     
+            htmlTxt += "</table></body></html>";       
+            return htmlTxt;
+        }      
+        </script>
+        
+    </head>
+
+    <body>
+        <div id = "container" method="post">
+            <h1>Enter URL for Newspaper List XML File</h1>
+            <form name="XMLTOHTML">
+                <input type="text" id="xml_input" value=""><br><br>
+                <input type = "button" id="xml_sumbit" value="Submit Query" onclick="portal()">
+            </form>
+        </div>  
+    <noscript>  
+    </body>
+</html>
