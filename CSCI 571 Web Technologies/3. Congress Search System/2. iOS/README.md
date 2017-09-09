@@ -1,15 +1,3 @@
-ReadMe:
-DATE NOV 20 2016
-
-Reference for Slide Menu Implementation
-
-Pod Name:	SWRevealViewController
-
-Github:		https://github.com/John-Lluch/SWRevealViewController
-
-Source File:	SWRevealViewController.h
-		SWRevealViewController.m
-
 General Design:
 Model:	Legislators.swift	Legislator Class
 	Bills.swift		Bill Class
@@ -25,3 +13,13 @@ Controller:	MenuVC		LeftMenu
 		CommitteesVC	tabs & detail
 		FavoriteVC	three tabs 
 		AboutMe		Author info
+
+Reference for Slide Menu Implementation
+
+Pod Name:	SWRevealViewController
+
+Github:		https://github.com/John-Lluch/SWRevealViewController
+
+Source File:	SWRevealViewController.h
+				SWRevealViewController.m
+
