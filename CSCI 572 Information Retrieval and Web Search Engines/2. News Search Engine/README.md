@@ -1,13 +1,11 @@
 # News Search Engine
 
 Steps:
-1. 	use Tika to generate big.txt
-2. 	config Solr for autocomplete suggestion
-3. 	use query and ajax to handle autocomplete
-	(https://www.devbridge.com/sourcery/components/jquery-autocomplete/)
-4. 	use SpellCorrector.php provided by homework to deal with spell errors
-5. 	use simple_html_dom(http://simplehtmldom.sourceforge.net/) 
-	to parse the dom tree if target html to generate snnipet
+1. Indexed ABCNews  articles with Solr.
+2. Computed PageRank using map-reduce in hadoop on GAE.
+3. Provided Autocompletion and Spell Correction (https://www.devbridge.com/sourcery/components/jquery-autocomplete/)
+4. use SpellCorrector.php provided by homework to deal with spell errors
+5. Generated Snippets for preview (http://simplehtmldom.sourceforge.net/) 
 
 Appendix:
 engine.php: main portal for get solr response
